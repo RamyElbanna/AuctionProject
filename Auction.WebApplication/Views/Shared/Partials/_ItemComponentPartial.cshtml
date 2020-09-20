@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Auction.DataAccess.Item>
+
+<div class="row">
+    <div class="col-md-4">
+        <input id="itemName" placeholder="Item Name" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <input id="itemStartingPrice" placeholder="Starting Price" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary" id="addItemBtn">Add</button>
+    </div>
+</div>
+<select id="allItems" class="form-control">
+    <option value="" disabled selected>All Items</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Name - @item.StartingPrice</option>
+    }
+</select>
+
+

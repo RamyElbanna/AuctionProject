@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Auction Demo</h1>
+    <div class="row" style="margin-top:100px">
+        <div class="col-md-5">
+
+            <partial name="Partials/_ItemComponentPartial" model="@ViewBag.Items" />
+
+            <div style="margin-top:100px">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input id="bidderName" placeholder="Participant Name" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" id="addBidderBtn">Add</button>
+                    </div>
+                </div>
+                <select id="allBidders" class="form-control">
+                    <option value="" disabled selected>All Bidders</option>
+                    @foreach (var item in ViewBag.Bidders)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-md-7" id="auctionTransactionsComponents">
+            <partial name="Partials/_AuctionTransactionsPartial" />
+        </div>
+    </div>
+</div>
+
